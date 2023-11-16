@@ -30,7 +30,9 @@ usuariosRutas.get("/:id", async (req, res) => {
 usuariosRutas.post("/", async (req, res) => {
   try {
     const db = await conectarDB();
-    const { user, pass } = req.body;
+    const { login__correo, login__pass } = req.body;
+    const user = login__correo;
+    const pass = login__pass;
 
     const result = await db.collection("usuarios").insertOne({ user, pass });
     //result === true

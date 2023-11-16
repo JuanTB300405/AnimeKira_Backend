@@ -1,9 +1,12 @@
 import express from "express";
 import usuariosRutas from "./routes/users.js";
-import dotenv from "dotenv"
+import cors from "cors";
+import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+app.use(cors({ origin: "*" }));
+
 app.use(express.json());
 
 // logica del negocio
